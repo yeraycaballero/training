@@ -1,0 +1,43 @@
+{
+  "name": "string-calculator",
+  "version": "0.0.1",
+  "description": "TDD kata",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test -w"
+  },
+  "contributors": [
+    {
+      "name": "Yeray",
+      "email": "yeraycaballero@gmail.com"
+    },
+    {
+      "name": "Néstor",
+      "email": "nestorbs@gmail.com"
+    },
+    {
+      "name": "Aythami",
+      "email": "arreche@gmail.com"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "babel": "^5.6.14",
+    "di": "^2.0.0-pre-14",
+    "expect.js": "^0.3.1",
+    "lodash": "^3.9.3",
+    "mocha": "^2.2.4"
+  },
+  "jspm": {
+    "directories": {},
+    "dependencies": {
+      "expect.js": "npm:expect.js@^0.3.1",
+      "mocha": "npm:mocha@^2.2.5"
+    },
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.1.13",
+      "babel-runtime": "npm:babel-runtime@^5.1.13",
+      "core-js": "npm:core-js@^0.9.4"
+    }
+  }
+}
