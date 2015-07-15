@@ -1,13 +1,11 @@
 var StringParser =  require('../src/stringParser')
-,   expect = require('expect.js')
-,   di = require('di');
+,   expect = require('expect.js');
 
 describe('StringParser', function() {
     var stringParse;
-    var injector = new di.Injector([]);
 
     beforeEach(function() {
-        stringParser = injector.get(StringParser);
+        stringParser = new StringParser();
     });
 
     it ('shoud return [0] for empty string', function() {
@@ -22,7 +20,7 @@ describe('StringParser', function() {
         expect([1,2,3]).eql(stringParser.parse('1\n2,3'));
     });
 
-    it.only ('should return an array with numbers separated by a custom delimiter', function() {
+    it ('should return an array with numbers separated by a custom delimiter', function() {
         expect([1,2,3]).eql(stringParser.parse('//;\n1;2;3'));
     });
 });

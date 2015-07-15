@@ -1,14 +1,18 @@
 var di = require('di');
-var DelimiterFinder = require('./delimiterFinder');
 
-function StringParser(delimiterFinder) {
-    this.delimiterFinder = delimiterFinder;
+var DEFAULT_DELIMITER = /,|\n/;
+
+function StringParser() {
+    this.regExp = /\/\/(.+)\n(.*)/;
 }
 
 StringParser.prototype.parse = function(text) {
-    var delimiter = this.delimiterFinder.find(text);
+    var groups = this.regExp.exec(text);
 
-    var numbers = text.split(delimiter);
+    var delimiter = (groups)?  groups[1] : DEFAULT_DELIMITER;
+    var content   = (groups)? groups[2]  : text;
+
+    var numbers = content.split(delimiter);
 
     return numbers.map(function(char) {
         return toInteger(char);
@@ -20,7 +24,5 @@ function toInteger(char) {
     return parseInt(char);
 }
 
-
-di.annotate(StringParser, new di.Inject(DelimiterFinder));
 
 module.exports = StringParser;

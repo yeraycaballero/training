@@ -10,6 +10,7 @@ var StringCalculator = function StringCalculator(stringParser, calculator) {
 
 StringCalculator.prototype.add = function(text) {
     if (text.length == 0) return 0;
+
     var numbers = this.stringParser.parse(text);
     return this.calculator.add(numbers);
 }
